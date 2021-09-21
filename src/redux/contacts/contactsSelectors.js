@@ -1,8 +1,8 @@
-export const getContacts = (state) => state.contacts.items;
+const getContacts = (state) => state.contacts.items;
 
-export const getFilter = (state) => state.contacts.filter;
+const getFilter = (state) => state.contacts.filter;
 
-export const getFilteredContacts = (state) => {
+const getFilteredContacts = (state) => {
   const filter = getFilter(state);
   const contacts = getContacts(state);
 
@@ -12,3 +12,5 @@ export const getFilteredContacts = (state) => {
     contact.name.toLowerCase().includes(normalizedFilterValue)
   );
 };
+
+export { getContacts, getFilter, getFilteredContacts };

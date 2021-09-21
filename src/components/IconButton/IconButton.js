@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import style from "../IconButton/IconButton.module.css";
-import addClassNames from "../../utils/addClassNames";
+import addClassNames from "utils/addClassNames";
 
 export const deleteContactBtnClassNames = addClassNames(
   "button",

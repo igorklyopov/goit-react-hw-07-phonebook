@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import style from "../Filter/Filter.module.css";
-import { changeFilter } from "../../redux/contacts/contacts-actions";
+import { changeFilter } from "redux/contacts/contactsActions";
 
 function Filter({ value }) {
   const dispatch = useDispatch();

@@ -8,15 +8,15 @@ import {
   deleteContactRequest,
   deleteContactSuccess,
   deleteContactError,
-} from "./contacts-actions";
+} from "./contactsActions";
 
 import {
   fetchContactsData,
   postContactData,
   deleteContactData,
-} from "../../services/contactsAPI";
+} from "services/contactsAPI";
 
-export const fetchContacts = () => async (dispatch) => {
+const fetchContacts = () => async (dispatch) => {
   dispatch(fetchContactsRequest());
 
   try {
@@ -27,7 +27,7 @@ export const fetchContacts = () => async (dispatch) => {
   }
 };
 
-export const addContact = (name, number) => async (dispatch) => {
+const addContact = (name, number) => async (dispatch) => {
   const contactData = {
     name,
     number,
@@ -43,7 +43,7 @@ export const addContact = (name, number) => async (dispatch) => {
   }
 };
 
-export const deleteContact = (contactId) => async (dispatch) => {
+const deleteContact = (contactId) => async (dispatch) => {
   dispatch(deleteContactRequest());
 
   try {
@@ -53,3 +53,5 @@ export const deleteContact = (contactId) => async (dispatch) => {
     dispatch(deleteContactError(error.message));
   }
 };
+
+export { fetchContacts, addContact, deleteContact };

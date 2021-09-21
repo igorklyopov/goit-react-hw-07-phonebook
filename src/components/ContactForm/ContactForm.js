@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/contacts/contacts-operations";
-import { getContacts } from "../../redux/contacts/contacts-selectors";
+import { addContact } from "redux/contacts/contactsOperations";
+import { getContacts } from "redux/contacts/contactsSelectors";
 import Button from "../Button";
 import style from "../ContactForm/ContactForm.module.css";
 
@@ -29,12 +29,14 @@ function ContactForm() {
 
     if (duplicateContactName) {
       alert(`${name} is already in contacts!`);
+      reset();
       return;
     }
     if (duplicateContactNumber) {
       alert(
         `${number} is already in contacts! (${duplicateContactNumber.name} has this number)`
       );
+      reset();
       return;
     }
 

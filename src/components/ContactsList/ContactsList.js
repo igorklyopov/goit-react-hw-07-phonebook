@@ -3,11 +3,13 @@ import style from "../ContactsList/ContactsList.module.css";
 import IconButton, {
   deleteContactBtnClassNames,
 } from "../IconButton/IconButton";
-import { ReactComponent as IconCross } from "../../images/cross.svg";
-import addClassNames from "../../utils/addClassNames";
-import { deleteContact } from "../../redux/contacts/contacts-operations";
-import { getFilteredContacts } from "../../redux/contacts/contacts-selectors";
-import { fetchContacts } from "../../redux/contacts/contacts-operations";
+import { ReactComponent as IconCross } from "images/cross.svg";
+import addClassNames from "utils/addClassNames";
+import {
+  deleteContact,
+  fetchContacts,
+} from "redux/contacts/contactsOperations";
+import { getFilteredContacts } from "redux/contacts/contactsSelectors";
 import { useEffect } from "react";
 
 const ContactsList = () => {
