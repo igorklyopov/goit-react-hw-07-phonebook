@@ -28,7 +28,7 @@ export const fetchContacts = () => async (dispatch) => {
 };
 
 export const addContact = (name, number) => async (dispatch) => {
-  const contact = {
+  const contactData = {
     name,
     number,
   };
@@ -36,7 +36,7 @@ export const addContact = (name, number) => async (dispatch) => {
   dispatch(postContactRequest());
 
   try {
-    await postContactData(contact);
+    const contact = await postContactData(contactData);
     dispatch(postContactSuccess(contact));
   } catch (error) {
     dispatch(postContactError(error.message));
