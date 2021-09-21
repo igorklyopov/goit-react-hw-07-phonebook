@@ -5,21 +5,26 @@ import IconButton, {
 } from "../IconButton/IconButton";
 import { ReactComponent as IconCross } from "../../images/cross.svg";
 import addClassNames from "../../utils/addClassNames";
-import { deleteContact } from "../../redux/contacts/contacts-actions";
+import { deleteContact } from "../../redux/contacts/contacts-operations";
 import { getFilteredContacts } from "../../redux/contacts/contacts-selectors";
+import { fetchContacts } from "../../redux/contacts/contacts-operations";
+import { useEffect } from "react";
 
 const ContactsList = () => {
   const contactsListClassNames = addClassNames("list", style.contactsList);
   const contactNameClassNames = addClassNames("link", style.contactsNumber);
 
   const contacts = useSelector(getFilteredContacts);
-
   const dispatch = useDispatch();
   const onDeleteContactBtnClick = (id) => dispatch(deleteContact(id));
 
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <ul className={contactsListClassNames}>
-      {contacts?.map(({ id, name, number }) => (
+      {contacts.map(({ id, name, number }) => (
         <li key={id} className={style.contactsListItem}>
           <p className={style.contactsName}>{name}: </p>
           <a href={`tel:${number}`} className={contactNameClassNames}>
