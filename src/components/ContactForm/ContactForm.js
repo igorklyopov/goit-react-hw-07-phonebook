@@ -40,7 +40,12 @@ function ContactForm() {
       return;
     }
 
-    dispatch(addContact(name, number));
+    const contactData = {
+      name,
+      number,
+    };
+
+    dispatch(addContact(contactData));
 
     reset();
   };
