@@ -1,15 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  fetchContactsRequest,
-  fetchContactsSuccess,
-  fetchContactsError,
-  postContactRequest,
-  postContactSuccess,
-  postContactError,
-  deleteContactRequest,
-  deleteContactSuccess,
-  deleteContactError,
-} from "./contactsActions";
 
 import {
   fetchContactsData,
